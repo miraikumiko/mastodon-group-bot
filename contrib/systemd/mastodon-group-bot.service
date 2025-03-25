@@ -1,0 +1,11 @@
+[Unit]
+Description=Mastodon group bot
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=simple
+ExecStart=/usr/bin/mastodon-group-bot
+
+[Install]
+WantedBy=multi-user.target

@@ -13,12 +13,14 @@ This is a bot which implements group functionality in Mastodon.
 * Logging
 * Admin commands
 
-### Admin commands
+## Admin commands
 
-* unboost \<Toot ID>
-* delete  \<Toot ID>
+```
+unboost <Toot ID>
+delete  <Toot ID>
+```
 
-# Configuration
+## Configuration
 
 The bot is configured in a JSON file that looks like this:
 ```
@@ -38,7 +40,7 @@ The bot is configured in a JSON file that looks like this:
 }
 ```
 
-# Building
+## Building
 
 ```
 go mod init mastodon-group-bot
@@ -46,33 +48,14 @@ go mod tidy
 go build
 ```
 
-# Setup services
-
-For first make dirs, copy config and binary
-```
-mkdir /etc/mastodon-group-bot
-mkdir /var/lib/mastodon-group-bot
-mkdir /var/log/mastodon-group-bot
-chown nobody /var/lib/mastodon-group-bot
-chown nobody /var/log/mastodon-group-bot
-cp config.json /etc/mastodon-group-bot/config.json
-cp mastodon-group-bot /usr/bin/mastodon-group-bot
-```
-
 ## Systemd
 
-```
-cp ./services/systemd/mastodon-group-bot.service /etc/systemd/system/mastodon-group-bot.service
-```
+`cp ./services/systemd/mastodon-group-bot.service /etc/systemd/system/mastodon-group-bot.service`
 
 ## OpenRC
 
-```
-cp ./services/openrc/mastodon-group-bot /etc/init.d/mastodon-group-bot
-```
+`cp ./services/openrc/mastodon-group-bot /etc/init.d/mastodon-group-bot`
 
-# Usage
+## Usage
 
-```
-mastodon-group-bot -config <path> -db <path> -log <path>
-```
+`mastodon-group-bot -config <path> -db <path> -log <path>`
